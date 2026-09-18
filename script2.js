@@ -488,4 +488,143 @@
     const yearEl = $('#year');
     if (yearEl) yearEl.textContent = new Date().getFullYear();
 
+    /* ══════════════════════════════════════════════════════════════
+       BRANCH LOCATIONS & DIRECTION MAP HANDLERS
+       ══════════════════════════════════════════════════════════════ */
+    const branchData = {
+        ipaja: {
+            title: 'Ipaja Branch',
+            badgeText: 'Showing Ipaja Branch',
+            address: '30 Fatade Road, Baruwa, Ipaja, Lagos, Nigeria',
+            embedUrl: 'https://maps.google.com/maps?q=30%20Fatade%20Road%2C%20Baruwa%2C%20Ipaja%2C%20Lagos&t=&z=15&ie=UTF8&iwloc=&output=embed',
+            dirUrl: 'https://www.google.com/maps/dir/?api=1&destination=30+Fatade+Road+Baruwa+Ipaja+Lagos',
+            searchUrl: 'https://www.google.com/maps/search/?api=1&query=30+Fatade+Road+Baruwa+Ipaja+Lagos'
+        },
+        alagbado: {
+            title: 'Alagbado Branch',
+            badgeText: 'Showing Alagbado Branch',
+            address: '104B Ayedun Bus Stop, AIT Road, Alagbado, Lagos, Nigeria',
+            embedUrl: 'https://maps.google.com/maps?q=104B%20Ayedun%20Bus%20Stop%2C%20AIT%20Road%2C%20Alagbado%2C%20Lagos&t=&z=15&ie=UTF8&iwloc=&output=embed',
+            dirUrl: 'https://www.google.com/maps/dir/?api=1&destination=104B+Ayedun+Bus+Stop+AIT+Road+Alagbado+Lagos',
+            searchUrl: 'https://www.google.com/maps/search/?api=1&query=104B+Ayedun+Bus+Stop+AIT+Road+Alagbado+Lagos'
+        }
+    };
+
+    let activeBranchKey = 'ipaja';
+
+    const locationTabs = $$('.location-tab');
+    const branchMapIframe = $('#branch-map-iframe');
+    const mapBadgeText = $('#map-badge-text');
+    const externalMapLink = $('#external-map-link');
+
+    function switchBranch(key) {
+        if (!branchData[key]) return;
+        activeBranchKey = key;
+        const data = branchData[key];
+
+        // Update tabs state
+        locationTabs.forEach(tab => {
+            const isTarget = tab.getAttribute('data-branch') === key;
+            tab.classList.toggle('active', isTarget);
+            tab.setAttribute('aria-selected', isTarget ? 'true' : 'false');
+        });
+
+        // Toggle branch details cards
+        $$('.branch-details').forEach(card => {
+            const isMatch = card.getAttribute('data-branch-content') === key;
+            card.hidden = !isMatch;
+            card.classList.toggle('active', isMatch);
+        });
+
+        // Update iframe map and links
+        if (branchMapIframe) branchMapIframe.src = data.embedUrl;
+        if (mapBadgeText) mapBadgeText.textContent = data.badgeText;
+        if (externalMapLink) externalMapLink.href = data.searchUrl;
+    }
+
+    locationTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            const branchKey = tab.getAttribute('data-branch');
+            switchBranch(branchKey);
+        });
+    });
+
+    // Copy Address Toast Handler
+    function showCopyToast(text) {
+        let toast = $('.copy-toast');
+        if (!toast) {
+            toast = document.createElement('div');
+            toast.className = 'copy-toast';
+            document.body.appendChild(toast);
+        }
+        toast.textContent = text;
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 2500);
+    }
+
+    $$('.copy-addr-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const addr = btn.getAttribute('data-address');
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(addr).then(() => {
+                    showCopyToast('✓ Address copied to clipboard!');
+                }).catch(() => {
+                    showCopyToast('Address: ' + addr);
+                });
+            } else {
+                showCopyToast('Address: ' + addr);
+            }
+        });
+    });
+
+    // Geolocation Handler
+    const geoBtn = $('#geo-btn');
+    const routeStartInput = $('#route-start');
+
+    if (geoBtn && routeStartInput) {
+        geoBtn.addEventListener('click', () => {
+            if (!('geolocation' in navigator)) {
+                showCopyToast('Geolocation is not supported by your browser.');
+                return;
+            }
+            geoBtn.disabled = true;
+            geoBtn.style.opacity = '.5';
+            routeStartInput.placeholder = 'Locating you…';
+
+            navigator.geolocation.getCurrentPosition(
+                pos => {
+                    geoBtn.disabled = false;
+                    geoBtn.style.opacity = '';
+                    const coords = `${pos.coords.latitude.toFixed(5)},${pos.coords.longitude.toFixed(5)}`;
+                    routeStartInput.value = coords;
+                    showCopyToast('✓ Location retrieved!');
+                },
+                err => {
+                    geoBtn.disabled = false;
+                    geoBtn.style.opacity = '';
+                    routeStartInput.placeholder = 'e.g. Egbeda, Command, or Ikeja';
+                    showCopyToast('Could not fetch location. Please enter area name.');
+                },
+                { timeout: 8000 }
+            );
+        });
+    }
+
+    // Driving Route Form Submission Handler
+    const routeForm = $('#route-planner-form');
+    if (routeForm) {
+        routeForm.addEventListener('submit', e => {
+            e.preventDefault();
+            const startVal = routeStartInput ? routeStartInput.value.trim() : '';
+            const targetData = branchData[activeBranchKey];
+            let navUrl = targetData.dirUrl;
+
+            if (startVal) {
+                navUrl = `https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(startVal)}&destination=${encodeURIComponent(targetData.address)}&travelmode=driving`;
+            }
+
+            window.open(navUrl, '_blank', 'noopener');
+        });
+    }
+
 })();

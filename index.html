@@ -42,6 +42,7 @@
       <a href="#how">How it works</a>
       <a href="#coaches">Coaches</a>
       <a href="#membership">Membership</a>
+      <a href="#locations">Locations &amp; Maps</a>
       <a href="#visit">Visit</a>
     </nav>
 
@@ -68,6 +69,7 @@
     <a href="#how">How it works</a>
     <a href="#coaches">Coaches</a>
     <a href="#membership">Membership</a>
+    <a href="#locations">Locations &amp; Maps</a>
     <a href="#visit">Visit</a>
     <a class="btn btn--primary btn--block" href="#join">Claim 2 Weeks Free</a>
   </div>
@@ -608,6 +610,167 @@
   </div>
 </section>
 
+<!-- ── Branch Locations & Direction Map ──────────────────────────────── -->
+<section class="section section--locations" id="locations">
+  <div class="wrap">
+    <div class="sec-head sec-head--center">
+      <p class="label">Find Us</p>
+      <h2 class="sec-title">Our Gym Locations &amp; Directions</h2>
+      <p class="sec-lede">
+        We have two accessible, fully equipped branches in Lagos. Choose a branch to view map directions, landmarks, and route guidance.
+      </p>
+    </div>
+
+    <!-- Location Tab Navigation -->
+    <div class="location-tabs" role="tablist" aria-label="Gym Branches">
+      <button class="location-tab active" role="tab" id="tab-ipaja" aria-selected="true" aria-controls="branch-detail-ipaja" data-branch="ipaja">
+        <span class="location-tab__badge">Main Gym</span>
+        <span class="location-tab__title">Ipaja Branch</span>
+        <span class="location-tab__sub">30 Fatade Road, Baruwa</span>
+      </button>
+      <button class="location-tab" role="tab" id="tab-alagbado" aria-selected="false" aria-controls="branch-detail-alagbado" data-branch="alagbado">
+        <span class="location-tab__badge location-tab__badge--alt">Express Branch</span>
+        <span class="location-tab__title">Alagbado Branch</span>
+        <span class="location-tab__sub">104B Ayedun Bus Stop, AIT Road</span>
+      </button>
+    </div>
+
+    <!-- Main Location Grid Container -->
+    <div class="location-grid">
+      <!-- Left Column: Active Branch Info & Route Tool -->
+      <div class="location-card reveal">
+        <!-- Branch 1: Ipaja -->
+        <div class="branch-details active" id="branch-detail-ipaja" data-branch-content="ipaja">
+          <div class="branch-header">
+            <span class="badge badge--orange">Main Headquarters</span>
+            <h3>Ipaja / Baruwa Branch</h3>
+            <p class="branch-address">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 7.2c0 7.3-8 11.8-8 11.8z"/><circle cx="12" cy="9" r="3"/></svg>
+              30 Fatade Road, Baruwa, Ipaja, Lagos, Nigeria
+            </p>
+          </div>
+          
+          <div class="branch-info-list">
+            <div class="info-item">
+              <dt>Landmarks &amp; Parking</dt>
+              <dd>Ample parking space in front of building on Fatade Road. Ayedun bus stop is a short walk away.</dd>
+            </div>
+            <div class="info-item">
+              <dt>Opening Hours</dt>
+              <dd>Mon &ndash; Fri: 6:00am &ndash; 8:00pm | Sat: 7:00am &ndash; 12:00pm | Sun: Closed</dd>
+            </div>
+            <div class="info-item">
+              <dt>Direct Contact</dt>
+              <dd><a href="tel:+2349133074078">0913 307 4078</a></dd>
+            </div>
+          </div>
+
+          <div class="branch-actions">
+            <a class="btn btn--primary btn--sm branch-dir-btn" href="https://www.google.com/maps/dir/?api=1&destination=30+Fatade+Road+Baruwa+Ipaja+Lagos" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg>
+              Get Directions
+            </a>
+            <button class="btn btn--outline btn--sm copy-addr-btn" type="button" data-address="30 Fatade Road, Baruwa, Ipaja, Lagos">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              Copy Address
+            </button>
+            <a class="btn btn--ghost btn--sm" href="tel:+2349133074078">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              Call Branch
+            </a>
+          </div>
+        </div>
+
+        <!-- Branch 2: Alagbado -->
+        <div class="branch-details" id="branch-detail-alagbado" data-branch-content="alagbado" hidden>
+          <div class="branch-header">
+            <span class="badge badge--soft">Express Branch</span>
+            <h3>Alagbado Branch</h3>
+            <p class="branch-address">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 7.2c0 7.3-8 11.8-8 11.8z"/><circle cx="12" cy="9" r="3"/></svg>
+              104B Ayedun Bus Stop, AIT Road, Alagbado, Lagos, Nigeria
+            </p>
+          </div>
+
+          <div class="branch-info-list">
+            <div class="info-item">
+              <dt>Landmarks &amp; Access</dt>
+              <dd>Located right at Ayedun Bus Stop along AIT Road, Alagbado. Convenient for commuters.</dd>
+            </div>
+            <div class="info-item">
+              <dt>Opening Hours</dt>
+              <dd>Mon &ndash; Fri: 6:00am &ndash; 8:00pm | Sat: 7:00am &ndash; 12:00pm | Sun: Closed</dd>
+            </div>
+            <div class="info-item">
+              <dt>Direct Contact</dt>
+              <dd><a href="tel:+2349133074078">0913 307 4078</a></dd>
+            </div>
+          </div>
+
+          <div class="branch-actions">
+            <a class="btn btn--primary btn--sm branch-dir-btn" href="https://www.google.com/maps/dir/?api=1&destination=104B+Ayedun+Bus+Stop+AIT+Road+Alagbado+Lagos" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg>
+              Get Directions
+            </a>
+            <button class="btn btn--outline btn--sm copy-addr-btn" type="button" data-address="104B Ayedun Bus Stop, AIT Road, Alagbado, Lagos">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              Copy Address
+            </button>
+            <a class="btn btn--ghost btn--sm" href="tel:+2349133074078">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              Call Branch
+            </a>
+          </div>
+        </div>
+
+        <!-- Real-Time Route Planner Box -->
+        <div class="route-planner-box">
+          <h4 class="route-planner-title">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="18 8 22 12 18 16"/><path d="M2 12h20"/><path d="M12 2a10 10 0 0 0-10 10"/></svg>
+            Plan Your Driving Route
+          </h4>
+          <form class="route-form" id="route-planner-form">
+            <div class="route-field">
+              <label for="route-start">Your Location (Starting point)</label>
+              <div class="input-with-action">
+                <input class="input input--sm" id="route-start" type="text" placeholder="e.g. Egbeda, Command, or Ikeja" />
+                <button class="btn-geo" id="geo-btn" type="button" title="Use my GPS location" aria-label="Use my GPS location">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg>
+                </button>
+              </div>
+            </div>
+            <button class="btn btn--primary btn--block btn--sm" type="submit" id="route-submit">
+              Launch Navigation in Google Maps
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Right Column: Interactive Embedded Map Frame -->
+      <div class="location-map-wrap reveal">
+        <div class="map-badge">
+          <span class="map-badge__dot"></span>
+          <span id="map-badge-text">Showing Ipaja Branch</span>
+        </div>
+        <div class="map-frame-container">
+          <iframe 
+            id="branch-map-iframe" 
+            title="Evaactivelife Gym Location Map" 
+            src="https://maps.google.com/maps?q=30%20Fatade%20Road%2C%20Baruwa%2C%20Ipaja%2C%20Lagos&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+            loading="lazy" 
+            allowfullscreen 
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+        <div class="map-footer-bar">
+          <span>📍 Map controls &bull; Pan &amp; Zoom</span>
+          <a id="external-map-link" href="https://www.google.com/maps/search/?api=1&query=30+Fatade+Road+Baruwa+Ipaja+Lagos" target="_blank" rel="noopener">Open in Google Maps &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ── Visit / join ─────────────────────────────────────────────────── -->
 <section class="section" id="join">
   <div class="wrap grid grid--2 grid--split">
@@ -622,11 +785,21 @@
 
       <dl class="info" id="visit">
         <div>
-          <dt>Address</dt>
-          <dd>30 Fatade Road, Baruwa, Ipaja, Lagos<br /><br />104B Ayedun Bus Stop, AIT Road, Alagbado</dd>
+          <dt>Ipaja / Baruwa Branch</dt>
+          <dd>
+            30 Fatade Road, Baruwa, Ipaja, Lagos<br />
+            <a class="info__link" href="https://www.google.com/maps/dir/?api=1&destination=30+Fatade+Road+Baruwa+Ipaja+Lagos" target="_blank" rel="noopener">&rarr; Get Directions</a>
+          </dd>
         </div>
         <div>
-          <dt>Phone</dt>
+          <dt>Alagbado Branch</dt>
+          <dd>
+            104B Ayedun Bus Stop, AIT Road, Alagbado, Lagos<br />
+            <a class="info__link" href="https://www.google.com/maps/dir/?api=1&destination=104B+Ayedun+Bus+Stop+AIT+Road+Alagbado+Lagos" target="_blank" rel="noopener">&rarr; Get Directions</a>
+          </dd>
+        </div>
+        <div>
+          <dt>Phone &amp; WhatsApp</dt>
           <dd><a href="tel:+2349133074078">0913 307 4078</a></dd>
         </div>
         <div>
@@ -712,10 +885,11 @@
         <a href="https://www.tiktok.com/@blitz..21" rel="noopener">TikTok</a>
       </nav>
       <div class="footer__col">
-        <h4>Visit</h4>
-        <p>30 Fatade Road, Baruwa,<br />Ipaja, Lagos</p>
+        <h4>Locations &amp; Maps</h4>
+        <p><strong>Ipaja:</strong> 30 Fatade Road, Baruwa</p>
+        <p><strong>Alagbado:</strong> 104B Ayedun Bus Stop</p>
+        <p><a href="#locations" class="footer__map-link">&rarr; Interactive Maps &amp; Directions</a></p>
         <p><a href="tel:+2349133074078">0913 307 4078</a></p>
-        <p>Mon&ndash;Fri 6am&ndash;8pm<br />Sat 7am&ndash;12pm</p>
       </div>
     </div>
     <div class="footer__bottom">

@@ -2174,3 +2174,410 @@ h4 {
         background: #fff
     }
 }
+
+/* ══════════════════════════════════════════════════════════════════
+   BRANCH LOCATIONS & DIRECTION MAP STYLES
+   ══════════════════════════════════════════════════════════════════ */
+.section--locations {
+    position: relative;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
+
+.sec-head--center {
+    text-align: center;
+    max-width: 680px;
+    margin: 0 auto 3rem;
+}
+
+.location-tabs {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 2.5rem;
+    flex-wrap: wrap;
+}
+
+.location-tab {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.25rem 1.75rem;
+    cursor: pointer;
+    text-align: left;
+    transition: all .3s var(--ease);
+    display: flex;
+    flex-direction: column;
+    gap: .35rem;
+    min-width: 260px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, .05);
+    color: var(--text-primary);
+}
+
+.location-tab:hover {
+    border-color: var(--orange);
+    transform: translateY(-2px);
+    background: var(--bg-surface);
+}
+
+.location-tab.active {
+    border-color: var(--orange);
+    background: var(--bg-surface);
+    box-shadow: 0 8px 30px rgba(255, 97, 5, .15);
+}
+
+.location-tab__badge {
+    font-size: .7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    color: var(--orange);
+}
+
+.location-tab__badge--alt {
+    color: #38bdf8;
+}
+
+.location-tab__title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--heading);
+}
+
+.location-tab__sub {
+    font-size: .85rem;
+    color: var(--text-dim);
+}
+
+/* Grid Layout for Cards + Map */
+.location-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: stretch;
+}
+
+.location-card {
+    background: var(--bg-card);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    box-shadow: var(--shadow-3d);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1.5rem;
+}
+
+.branch-details {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    transition: opacity .3s ease, transform .3s ease;
+}
+
+.branch-details[hidden] {
+    display: none !important;
+}
+
+.branch-header .badge {
+    display: inline-block;
+    padding: .25rem .75rem;
+    border-radius: 999px;
+    font-size: .75rem;
+    font-weight: 600;
+    margin-bottom: .75rem;
+}
+
+.badge--orange {
+    background: var(--orange-soft);
+    color: var(--orange);
+    border: 1px solid rgba(255, 97, 5, .2);
+}
+
+.badge--soft {
+    background: rgba(56, 189, 248, .1);
+    color: #38bdf8;
+    border: 1px solid rgba(56, 189, 248, .2);
+}
+
+.branch-header h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: .5rem;
+}
+
+.branch-address {
+    font-size: .95rem;
+    color: var(--text-dim);
+    display: flex;
+    align-items: flex-start;
+    gap: .5rem;
+    line-height: 1.5;
+}
+
+.branch-address svg {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    margin-top: 3px;
+    color: var(--orange);
+}
+
+.branch-info-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 1.25rem 0;
+}
+
+.info-item dt {
+    font-size: .75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    color: var(--text-muted);
+    margin-bottom: .2rem;
+}
+
+.info-item dd {
+    font-size: .925rem;
+    color: var(--text-primary);
+    line-height: 1.45;
+}
+
+.branch-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .75rem;
+}
+
+.branch-actions .btn svg {
+    width: 16px;
+    height: 16px;
+    margin-right: .4rem;
+}
+
+/* Route Planner */
+.route-planner-box {
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.25rem;
+    margin-top: .5rem;
+}
+
+.route-planner-title {
+    font-size: .95rem;
+    font-weight: 600;
+    margin-bottom: .85rem;
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    color: var(--heading);
+}
+
+.route-planner-title svg {
+    width: 18px;
+    height: 18px;
+    color: var(--orange);
+}
+
+.route-form {
+    display: flex;
+    flex-direction: column;
+    gap: .85rem;
+}
+
+.route-field label {
+    display: block;
+    font-size: .8rem;
+    color: var(--text-dim);
+    margin-bottom: .35rem;
+}
+
+.input-with-action {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-with-action .input {
+    width: 100%;
+    padding-right: 2.75rem;
+}
+
+.btn-geo {
+    position: absolute;
+    right: 6px;
+    background: transparent;
+    border: none;
+    color: var(--orange);
+    padding: .4rem;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: background .2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-geo:hover {
+    background: var(--orange-soft);
+}
+
+.btn-geo svg {
+    width: 18px;
+    height: 18px;
+}
+
+/* Map Frame Container */
+.location-map-wrap {
+    background: var(--bg-card);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-3d);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    min-height: 480px;
+}
+
+.map-badge {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    z-index: 2;
+    background: var(--nav-bg-scroll);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    padding: .4rem .85rem;
+    border-radius: 999px;
+    font-size: .8rem;
+    font-weight: 600;
+    color: var(--heading);
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, .2);
+}
+
+.map-badge__dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--orange);
+    box-shadow: 0 0 10px var(--orange);
+    animation: pulseDot 2s infinite;
+}
+
+@keyframes pulseDot {
+
+    0%,
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: .6;
+        transform: scale(1.2);
+    }
+}
+
+.map-frame-container {
+    flex: 1;
+    width: 100%;
+    height: 100%;
+    min-height: 420px;
+    position: relative;
+    background: var(--bg-surface);
+}
+
+.map-frame-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+}
+
+.map-footer-bar {
+    background: var(--bg-surface);
+    border-top: 1px solid var(--border);
+    padding: .75rem 1.25rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: .825rem;
+    color: var(--text-dim);
+}
+
+.map-footer-bar a {
+    color: var(--orange);
+    font-weight: 600;
+    transition: color .2s ease;
+}
+
+.map-footer-bar a:hover {
+    text-decoration: underline;
+}
+
+.info__link {
+    display: inline-block;
+    margin-top: .4rem;
+    font-size: .85rem;
+    font-weight: 600;
+    color: var(--orange);
+}
+
+.info__link:hover {
+    text-decoration: underline;
+}
+
+.footer__map-link {
+    color: var(--orange);
+    font-size: .85rem;
+    font-weight: 600;
+}
+
+/* Copy Toast Notification */
+.copy-toast {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: var(--heading);
+    color: var(--bg);
+    padding: .75rem 1.25rem;
+    border-radius: var(--radius-sm);
+    font-size: .875rem;
+    font-weight: 600;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .3);
+    z-index: 9999;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all .3s var(--ease);
+    pointer-events: none;
+}
+
+.copy-toast.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (max-width: 900px) {
+    .location-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .location-map-wrap {
+        min-height: 380px;
+    }
+
+    .map-frame-container {
+        min-height: 340px;
+    }
+}
