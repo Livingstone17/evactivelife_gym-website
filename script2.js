@@ -19,9 +19,7 @@
     if (saved) {
         html.setAttribute('data-theme', saved);
     } else {
-        // Respect OS preference
-        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        html.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
+        html.setAttribute('data-theme', 'dark');
     }
 
     // Update meta theme-color
